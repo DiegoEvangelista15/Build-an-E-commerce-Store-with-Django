@@ -1,0 +1,37 @@
+{% include "store/base.html" %} {% load static %} {% block content %}
+
+<style>
+  body {
+    background-color: grey;
+  }
+</style>
+
+<body>
+  <div class="container bg-white shadow-md p-5 form-layout">
+    <h4>Welcome! - {{user | title}}</h4>
+    <hr />
+    <br /><br />
+    <p>This is your Dashboard</p>
+
+    <li>Track your Orders</li>
+    <li>Manage your account</li>
+    <li>Logout your account</li>
+  </div>
+  <br>
+  <div class="container bg-white shadow-md p-5 form-layout">
+    <h4>Track your Orders</h4><hr>
+    <br>
+    <a class="btn btn-primary navbar-btn text-white" type="button" href="">My Orders</a><br><br>
+    
+  </div>
+  <br>
+  <div class="container bg-white shadow-md p-5 form-layout">
+    <h4>Manage your account</h4><hr>
+    <br>
+    <a class="btn btn-primary navbar-btn text-white" type="button" href="{% url 'profile-management' %}">Profile Management</a><br><br>
+    <a class="btn btn-danger navbar-btn text-white" type="button" href="{% url 'user-logout' %}">Logout</a>
+    
+  </div>
+</body>
+
+{% endblock content %}
