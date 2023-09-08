@@ -142,7 +142,7 @@ MEDIA_ROOT = BASE_DIR / 'static/media'  # não colocar / antes do static
 # EMAIL_USE_TLS = 'True'
 
 # EMAIL_HOST_USER = 'x@gmail.com'
-# EMAIL_HOST_PASSWORD = '31290-1293-0912'  # APENAS EXEMPLO MAS SE DEVE COLOCAR O EMAIL E SENHA CORRETO
+# EMAIL_HOST_PASSWORD = '31290-1293-0912'  # APENAS EXEMPLO MAS SE DEVE COLOCAR O EMAIL E SENHA CORRETO, que isso ira mandar para a pessoa
 
 EMAIL_BACKEND= 'django.core.mail.backends.console.EmailBackend'  #  para teste
 
