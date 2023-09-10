@@ -18,7 +18,7 @@ from django.contrib.auth import authenticate, login, logout
 
 from django.contrib.auth.decorators import login_required
 
-
+from django.contrib import messages
 
 
 def register(request):
@@ -108,6 +108,7 @@ def my_login(request):
 def user_logout(request):
 
     auth.logout(request)
+    messages.success(request, "Logout Success")
     return redirect('store')
 
 #Dashboard
@@ -128,6 +129,7 @@ def profile_management(request):
 
         if user_form.is_valid():
             user_form.save()
+            messages.info(request, "Account Update")
             return redirect('dashboard')
 
     
