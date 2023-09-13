@@ -6,6 +6,9 @@ from django.contrib.auth.models import User
 
 from . forms import CreateUserForm, LoginForm, UpdateUserForm
 
+from payment.forms import ShippingForm
+from payment.models import ShippingAddress
+
 from django.contrib.sites.shortcuts import get_current_site 
 from . token import user_tokenizer_generate
 
@@ -148,3 +151,31 @@ def delete_account(request):
         return redirect('store')
     
     return render(request, 'account/delete-account.html')
+
+
+# Shipping view
+@login_required(login_url='my-login')
+def manage_shipping(request):
+    try:
+        # account user with shipping information
+        shipping = ShippingAddress.objects.get(user=request.user.id)
+    except ShippingAddress.DoesNotExist:
+        # account user with NO shipping information
+        shipping = None
+
+    form = ShippingForm(instance=shipping)
+
+    if request.method == 'POST':
+        form = ShippingForm(request.POST, instance=shipping)
+
+        if form.is_valid():
+            #  Assign the user FK in the object
+            shipping_user = form.save(commit=False)
+
+            # Adding the FK itself
+            shipping_user.user = request.user
+            shipping_user.save()
+            return redirect('dashboard')
+    context = {'form': form}
+
+    return render(request, 'account/manage-shipping.html', context=context)
