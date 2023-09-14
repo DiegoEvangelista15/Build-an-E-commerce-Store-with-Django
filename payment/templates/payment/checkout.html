@@ -115,7 +115,20 @@
                <button id="complete-order" type="submit" class="btn btn-primary navbar-btn text-white"> &nbsp; Complete order </button>
                
 
-                <br>
+                <br> <br>
+
+                {% comment %} # Paypal integration {% endcomment %}
+                
+                <!-- PayPal button container -->
+
+                <div id="paypal-button-container"></div>
+
+
+                <!-- PayPal client ID integration -->
+
+                <script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD&intent=capture&enable-funding=venmo" data-sdk-integration-source="integrationbuilder"></script>
+
+
 
 
 
@@ -138,12 +151,107 @@
     
 
     <script>
+    {% comment %} Paypal Scripts {% endcomment %}
+
+     	const paypalButtonsComponent = paypal.Buttons({
+        // optional styling for buttons
+        // https://developer.paypal.com/docs/checkout/standard/customize/buttons-style-guide/
+        style: {
+          color: "gold",
+          shape: "rect",
+          layout: "vertical"
+        },
+
+        // set up the transaction
+        createOrder: (data, actions) => {
+            // pass in any options from the v2 orders create call:
+            // https://developer.paypal.com/api/orders/v2/#orders-create-request-body
+            const createOrderPayload = {
+                purchase_units: [
+                    {
+                        amount: {
+                            value: "88.44"
+                        }
+                    }
+                ]
+            };
+
+            return actions.order.create(createOrderPayload);
+        },
+
+        // finalize the transaction
+        onApprove: (data, actions) => {
+            const captureOrderHandler = (details) => {
+                const payerName = details.payer.name.given_name;
+                console.log('Transaction completed');
 
 
+            };
+
+            return actions.order.capture().then(captureOrderHandler);
+        },
+
+        // handle unrecoverable errors
+        onError: (err) => {
+            console.error('An error prevented the buyer from checking out with PayPal');
+
+  
+
+        }
+    });
+
+    paypalButtonsComponent
+        .render("#paypal-button-container")
+        .catch((err) => {
+            console.error('PayPal Buttons failed to render');
+        });
+
+
+
+
+
+// Complete Checkout
+
+    $(document).on('submit', function(e){
+
+        e.preventDefault();
+
+        $.ajax({
+
+            type:'POST',
+            url: '{% url "complete-order" %}',
+            data: {
+
+                name: $('#name').val(),
+                email: $('#email').val(),
+                address1: $('#address1').val(),
+                address2: $('#address2').val(),
+                city: $('#city').val(),
+
+                state: $('#state').val(),
+                zipcode: $('#zipcode').val(),
+
+                csrfmiddlewaretoken: "{{csrf_token}}",
+                action: 'post'
+            },
+
+            success: function(json){
+                window.location.replace("{% url 'payment-success' %}");
+
+
+            },
+            error: function(xhr,errmsg,err){
+
+                window.location.replace("{% url 'payment-failed' %}");
+
+            }
+
+        });
+
+    })
     
 
-
-   </script>
+    </script>
 
 
 

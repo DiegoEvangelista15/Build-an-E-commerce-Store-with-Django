@@ -147,3 +147,7 @@ MEDIA_ROOT = BASE_DIR / 'static/media'  # não colocar / antes do static
 
 EMAIL_BACKEND= 'django.core.mail.backends.console.EmailBackend'  #  para teste
 
+# permitir servico da Paypal (popups)
+
+SECURE_CROSS_ORIGIN_OPENER_POLICY = 'same-origin-allow-popups'
+
