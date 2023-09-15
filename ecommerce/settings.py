@@ -158,3 +158,5 @@ EMAIL_BACKEND= 'django.core.mail.backends.console.EmailBackend'  #  para teste
 
 SECURE_CROSS_ORIGIN_OPENER_POLICY = 'same-origin-allow-popups'
 
+
+# Exemplo dos logins - 80t543h2g05
