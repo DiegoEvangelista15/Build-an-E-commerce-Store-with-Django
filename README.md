@@ -8,3 +8,9 @@
 ![4](https://github.com/DiegoEvangelista15/Build-an-E-commerce-Store-with-Django/assets/96666136/9e73bf8a-f492-4b3f-a3df-c2d5f5a7ba46)
 ![5](https://github.com/DiegoEvangelista15/Build-an-E-commerce-Store-with-Django/assets/96666136/695edafb-7eaf-4e46-ad24-d921ff5c4aa0)
 ![6](https://github.com/DiegoEvangelista15/Build-an-E-commerce-Store-with-Django/assets/96666136/c5f1bc54-2753-46cf-897d-706ee9571c61)
+![7](https://github.com/DiegoEvangelista15/Build-an-E-commerce-Store-with-Django/assets/96666136/b1f8bc8a-75a5-462e-b1d8-68b1f1e75a5d)
+![8](https://github.com/DiegoEvangelista15/Build-an-E-commerce-Store-with-Django/assets/96666136/4a838a3f-1dc1-48ef-a370-704b0c1ec2a0)
+![11](https://github.com/DiegoEvangelista15/Build-an-E-commerce-Store-with-Django/assets/96666136/5ae7fb89-8457-437a-aff4-bc7868a0fcf1)
+![9](https://github.com/DiegoEvangelista15/Build-an-E-commerce-Store-with-Django/assets/96666136/889db43e-1957-431d-9688-93d1ed7511c2)
+
+
