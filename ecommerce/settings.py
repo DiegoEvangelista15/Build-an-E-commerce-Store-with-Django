@@ -142,17 +142,17 @@ MEDIA_ROOT = BASE_DIR / 'static/media'  # não colocar / antes do static
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
-# DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_PORT = '587'
-# EMAIL_USE_TLS = 'True'
+EMAIL_BACKEND = env('EMAIL_BACKEND')
+EMAIL_HOST = env('EMAIL_HOST')
+EMAIL_PORT = env('EMAIL_PORT')
+EMAIL_USE_TLS = env('EMAIL_USE_TLS')
 
-# EMAIL_HOST_USER = 'x@gmail.com'
-# EMAIL_HOST_PASSWORD = '31290-1293-0912'  # APENAS EXEMPLO MAS SE DEVE COLOCAR O EMAIL E SENHA CORRETO, que isso ira mandar para a pessoa
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')  # APENAS EXEMPLO MAS SE DEVE COLOCAR O EMAIL E SENHA CORRETO, que isso ira mandar para a pessoa
 
-EMAIL_BACKEND= 'django.core.mail.backends.console.EmailBackend'  #  para teste
+# EMAIL_BACKEND= 'django.core.mail.backends.console.EmailBackend'  #  para teste
 
 # permitir servico da Paypal (popups)
 
