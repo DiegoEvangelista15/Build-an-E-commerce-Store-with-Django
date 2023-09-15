@@ -150,7 +150,7 @@ EMAIL_PORT = env('EMAIL_PORT')
 EMAIL_USE_TLS = env('EMAIL_USE_TLS')
 
 EMAIL_HOST_USER = env('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')  # APENAS EXEMPLO MAS SE DEVE COLOCAR O EMAIL E SENHA CORRETO, que isso ira mandar para a pessoa
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')  
 
 # EMAIL_BACKEND= 'django.core.mail.backends.console.EmailBackend'  #  para teste
 
@@ -159,4 +159,4 @@ EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')  # APENAS EXEMPLO MAS SE DEVE C
 SECURE_CROSS_ORIGIN_OPENER_POLICY = 'same-origin-allow-popups'
 
 
-# Exemplo dos logins - 80t543h2g05
+
