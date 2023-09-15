@@ -80,6 +80,9 @@ def complete_order(request):
         for item in cart:
             OrderItem.objects.create(order_id=order.id, product=item['product'], quantity=item['qty'], price=item['price'])
 
+    #Email for complete order
+    #TODO fazer inclusao do email para enviar o email depois de terminar - ver aula secao23 - 186
+
     order_success = True
     response = JsonResponse({'success': order_success})
     return response
